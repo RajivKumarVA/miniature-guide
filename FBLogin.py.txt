@@ -1,0 +1,42 @@
+#from lib2to3.pgen2 import driver
+from lib2to3.pgen2 import driver
+import logging
+
+from selenium import webdriver
+
+class facebook(object):
+
+       def facebbok(self):
+            logging.basicConfig(filename="facebook.txt", format='%(asctime)s: %(levelname)s: %(message)s',
+                               datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+            driver = webdriver.Firefox(executable_path="E:\\geckodriver.exe")
+            webURL = "https://www.facebook.com/"
+            logging.info("Launching facebook.com...")
+            driver.get(webURL)
+# Enter Email  @password
+            logging.debug("Finding element for locating Email ID field")
+            elementById = driver.find_element_by_id("email")
+            elementById.send_keys("asthashrivastava96@gmail.com")
+            logging.debug("Finding element for locating Password D field")
+            elementByID = driver.find_element_by_id("pass")
+            if elementByID is not None:
+                elementByID.send_keys("astha@12")
+            else:
+               logging.error("Problem in finding email field")
+               print("unable to find element")
+ # login button
+            logging.debug("Finding element for locating Login button")
+            elementById = driver.find_element_by_id("u_0_a")
+            if elementById is not None:
+                 elementById.click()
+            else:
+               print("Unable to find Login button !")
+            logging.debug("Logging successful")
+            driver.quit()
+
+myObj = facebook()
+myObj.facebbok()
+
+
+
+
