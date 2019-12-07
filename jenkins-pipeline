@@ -2,15 +2,15 @@ pipeline {
   agent any
   
   stages {
-    stage ('Compile State'} {
+    stage ('Test Stage'} {
       steps {
-        echo "Compile Mode"
+        echo "Test Mode"
       }
     }
     
-    stage ('Test Stage'} {
+    stage ('Deploy Stage'} {
       steps {
-        echo "Test Stage"
+        echo "Deploy Stage"
       }
     }
   }
